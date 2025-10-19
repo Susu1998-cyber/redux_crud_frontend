@@ -1,4 +1,4 @@
- // src/Components/Login/Login.jsx
+// src/Components/Login/Login.jsx
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
@@ -21,7 +21,11 @@ const Login = () => {
   const handleEmailLogin = async (e) => {
     e.preventDefault();
     try {
-      await dispatch(loginUser({ email, password })).unwrap();
+      const userData = await dispatch(loginUser({ email, password })).unwrap();
+
+      // correct property access
+      localStorage.setItem("userId", userData.user.id);
+
       navigate("/home");
     } catch (err) {
       if (typeof err === "string") toast.error(err);
@@ -32,8 +36,12 @@ const Login = () => {
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
       const idToken = credentialResponse?.credential;
+      console.log("idToken",idToken);
+      
       if (!idToken) throw new Error("Missing Google credential");
       await dispatch(loginWithGoogle({ idToken })).unwrap();
+
+      // localStorage.setItem("userId", user._id);
       navigate("/home");
     } catch (e) {
       toast.error(e?.message || "Google login failed");

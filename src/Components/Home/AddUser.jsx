@@ -44,7 +44,7 @@ const AddModal = ({ open, handleClose }) => {
   if (!open) return null; // don't render modal if closed
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div className="fixed inset-0 z-50 flex items-center justify-center   ">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md p-6">
         <h2 className="text-xl font-semibold mb-4 text-gray-800">Add User</h2>
 

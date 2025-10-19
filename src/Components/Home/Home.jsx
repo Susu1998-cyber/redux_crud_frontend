@@ -6,6 +6,7 @@ import { getAllEmployees } from "../../Redux/employee/EmployeReducer";
 import AddModal from "./AddUser";
 import EditModal from "./EditUser";
 import DeleteModal from "./DeleteUser";
+import Navbar from "../Header/Navbar";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -47,23 +48,7 @@ const Home = () => {
   return (
     <>
       {/* Top Navbar */}
-      <nav className="bg-blue-600 text-white px-6 py-3 flex items-center justify-between shadow-md">
-        <div className="flex gap-4">
-          <button
-            onClick={() => navigate("/cart")}
-            className="hover:bg-blue-700 px-3 py-1 rounded"
-          >
-            Step1
-          </button>
-          <button
-            onClick={() => navigate("/google")}
-            className="hover:bg-blue-700 px-3 py-1 rounded"
-          >
-            Step2
-          </button>
-          <button className="hover:bg-blue-700 px-3 py-1 rounded">Step3</button>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Main Section */}
       <div className="p-6 mt-4">

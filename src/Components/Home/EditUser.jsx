@@ -34,7 +34,7 @@ const EditModal = ({ open, handleClose, selectedEmployee }) => {
   if (!open) return null; // Tailwind modal shows only when open=true
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+    <div className="fixed inset-0 flex items-center justify-center z-50   bg-opacity-50">
       <div className="bg-white rounded-lg shadow-lg w-full max-w-md p-6 relative">
         <h2 className="text-xl font-semibold mb-4">Edit User</h2>
 
@@ -135,9 +135,7 @@ const EditModal = ({ open, handleClose, selectedEmployee }) => {
                   }`}
                 />
                 {errors.position && touched.position && (
-                  <p className="text-red-500 text-xs mt-1">
-                    {errors.position}
-                  </p>
+                  <p className="text-red-500 text-xs mt-1">{errors.position}</p>
                 )}
               </div>
 
